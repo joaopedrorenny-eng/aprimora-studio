@@ -1,0 +1,485 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Aumentei a largura máxima para acomodar os blocos maiores */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-image: url('aprimora-studio.png'); 
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    border-bottom: 2px solid #ddd;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+}
+
+/* Botões */
+.button {
+    display: inline-block;
+    background-color: #ff6347;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+.button:hover {
+    background-color: #e5533d;
+}
+
+/* Seções Gerais */
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+.section h2 {
+    font-size: 2.2em; /* Aumentei um pouco o título */
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Seção de Antes e Depois */
+.before-after-section .container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.categories-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px; /* Aumentei o espaçamento entre as categorias */
+    margin-top: 40px;
+}
+
+.category-block {
+    flex: 1; 
+    min-width: 300px; /* Aumentei a largura mínima */
+}
+
+.category-block h3 {
+    font-size: 1.9em; /* Aumentei o título da categoria */
+    color: #ff6347;
+    margin-bottom: 25px;
+}
+.image-grid {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 30px; /* Aumentei o espaçamento entre os exemplos */
+}
+.before-after-container {
+    display: flex; 
+    justify-content: center;
+    gap: 20px; /* Aumentei o espaçamento entre antes/depois */
+    width: 100%;
+}
+.image-box {
+    position: relative;
+    flex: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Sombra mais pronunciada */
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5; /* Força a proporção 4:5 (largura/altura) */
+}
+.image-box img {
+    width: 100%;
+    height: 100%; /* Faz a imagem ocupar toda a altura da caixa */
+    display: block;
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+}
+.label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 14px; /* Aumentei o padding */
+    border-radius: 7px;
+    font-size: 1em; /* Aumentei o tamanho da fonte */
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo semi-transparente */
+}
+.label.before {
+    border-bottom: 3px solid #e74c3c;
+}
+.label.after {
+    border-bottom: 3px solid #2ecc71;
+}
+
+/* Seção Como Funciona */
+.how-it-works-section {
+    background-color: #fff;
+}
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.step-box {
+    max-width: 300px;
+    padding: 20px;
+}
+.step-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #ff6347;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.step-box h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+/* Nova Seção de Depoimentos (Estilo Janela de Chat) */
+.testimonials-section {
+    background-color: #f0f2f5; /* Fundo da seção */
+}
+
+.testimonial-chat-wrapper {
+    margin: 40px auto 0;
+    display: flex; /* Coloca as janelas de chat lado a lado */
+    justify-content: center; /* Centraliza as janelas */
+    gap: 40px; /* Espaçamento entre as janelas */
+    flex-wrap: wrap; /* Permite que quebre a linha em telas menores */
+}
+
+.chat-window {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Faz com que as janelas dividam o espaço */
+    min-width: 350px; /* Largura mínima antes de quebrar */
+    max-width: 400px; /* Largura máxima */
+}
+
+.chat-header {
+    background-color: #f0f2f5;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha itens nas pontas */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    overflow: hidden; /* Garante que a imagem fique contida no círculo */
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+}
+
+.contact-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.header-icons {
+    display: flex;
+    gap: 5px; /* Diminuí o espaçamento */
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.header-icons svg {
+    width: 22px; 
+    height: 22px;
+    color: #555;
+    stroke: #555;
+    padding: 3px;
+    cursor: default; /* Impede que o cursor mude para 'ponteiro' */
+}
+.header-icons .icon-phone {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+.chat-body {
+    padding: 20px;
+    background-color: #e5ddd5;
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    flex-grow: 1; /* Faz o corpo do chat ocupar o espaço disponível */
+}
+
+.chat-conversation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%; /* Ajuste para acomodar o horário */
+    padding: 10px 15px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.message p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #333;
+    padding-bottom: 15px; /* Espaço para o horário abaixo */
+}
+
+.time-wrapper {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.message-time {
+    font-size: 0.75em;
+    color: #999;
+}
+
+.my-message .message-time {
+    color: #77936a;
+}
+
+.read-receipt, .sent-receipt {
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+}
+
+.sent-receipt path {
+    fill: #999; /* Cor do tique de entregue (cinza) */
+}
+
+.read-receipt path {
+    fill: #53bdeb !important; /* Cor do tique azul */
+}
+
+.client-message {
+    background-color: #fff;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+}
+
+.my-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+}
+
+.chat-footer {
+    background-color: #f0f2f5;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chat-footer svg {
+    width: 26px;
+    height: 26px;
+    color: #555;
+    stroke: #555;
+    cursor: default; /* Impede que o cursor mude para 'ponteiro' */
+}
+
+.text-input-placeholder {
+    flex-grow: 1;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 18px;
+    font-size: 0.95em;
+    color: #999;
+    border: 1px solid #ddd;
+}
+
+
+/* Seção de Preços */
+.pricing-section {
+    background-color: #fff;
+}
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha os pacotes verticalmente */
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Permite que os pacotes quebrem a linha */
+}
+.pricing-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-box h3 {
+    color: #ff6347;
+    font-size: 1.6em;
+    margin-top: 0;
+}
+.pricing-box p {
+    min-height: 48px; /* Garante a mesma altura para a descrição */
+}
+.price {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 10px 0 20px;
+}
+.pricing-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 30px;
+    text-align: left;
+}
+.pricing-box ul li {
+    margin-bottom: 12px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+.pricing-box ul li::before {
+    content: '✓';
+    color: #2ecc71;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Pacote Popular */
+.pricing-box.popular {
+    border-color: #ff6347;
+    transform: scale(1.05); /* Destaca o pacote */
+    z-index: 10;
+}
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    background-color: #ff6347;
+    color: #fff;
+    padding: 8px 40px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transform: rotate(45deg);
+}
+.pricing-box.popular .button {
+    background-color: #ff6347;
+}
+.pricing-box.popular .button:hover {
+    background-color: #e5533d;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #aaa;
+    margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 1100px) { /* Ajustei o breakpoint para a quebra das colunas */
+    .categories-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 850px) { /* Novo breakpoint para os depoimentos */
+    .testimonial-chat-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 20px;
+    }
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pricing-box.popular {
+        transform: scale(1); /* Remove o destaque de tamanho no mobile */
+    }
+    .message {
+        max-width: 90%; /* Mensagens ocupam mais espaço em telas pequenas */
+    }
+}
+
