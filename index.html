@@ -324,7 +324,7 @@
                             <li>Entrega em até 48 horas</li>
                             <li>Suporte via WhatsApp</li>
                         </ul>
-                        <a href="https://pay.kiwify.com.br/Y5EX7Ha" class="button" onclick="handlePurchaseClick()">Comprar Agora</a>
+                        <a href="https://pay.kiwify.com.br/Y5EX7Ha" class="button" onclick="handlePurchaseClick({ id: 'PAC-ESS-120', name: 'Pacote Essencial', price: 120.00 })">Comprar Agora</a>
                     </div>
                      <div class="pricing-box popular">
                         <div class="popular-badge">Mais Popular</div>
@@ -337,7 +337,7 @@
                             <li>Suporte via WhatsApp</li>
                             <li><strong>Revisão Bônus</strong></li>
                         </ul>
-                        <a href="https://pay.kiwify.com.br/ENVsfZg" class="button" onclick="handlePurchaseClick()">Comprar Agora</a>
+                        <a href="https://pay.kiwify.com.br/ENVsfZg" class="button" onclick="handlePurchaseClick({ id: 'PAC-PAD-200', name: 'Pacote Padrão', price: 200.00 })">Comprar Agora</a>
                     </div>
                      <div class="pricing-box">
                         <h3>Pacote Profissional</h3>
@@ -349,7 +349,7 @@
                             <li>Suporte Prioritário</li>
                             <li><strong>2 Revisões Bônus</strong></li>
                         </ul>
-                        <a href="https://pay.kiwify.com.br/cvEeduj" class="button" onclick="handlePurchaseClick()">Comprar Agora</a>
+                        <a href="https://pay.kiwify.com.br/cvEeduj" class="button" onclick="handlePurchaseClick({ id: 'PAC-PRO-350', name: 'Pacote Profissional', price: 350.00 })">Comprar Agora</a>
                     </div>
                 </div>
             </div>
@@ -364,13 +364,49 @@
 
     <script>
         // Função para rastrear o clique no botão de compra
-        function handlePurchaseClick() {
+        function handlePurchaseClick(item) {
+            // Eventos do Pixel da Meta
             fbq('track', 'AddToCart');
             fbq('track', 'InitiateCheckout');
+
+            // Evento add_to_cart do Google Analytics 4
+            gtag('event', 'add_to_cart', {
+                currency: "BRL",
+                value: item.price,
+                items: [{
+                    item_id: item.id,
+                    item_name: item.name,
+                    price: item.price,
+                    quantity: 1
+                }]
+            });
+
+            // Evento begin_checkout do Google Analytics 4
+            gtag('event', 'begin_checkout', {
+                currency: "BRL",
+                value: item.price,
+                items: [{
+                    item_id: item.id,
+                    item_name: item.name,
+                    price: item.price,
+                    quantity: 1
+                }]
+            });
         }
 
         // Evento ViewContent do Pixel da Meta
         fbq('track', 'ViewContent');
+
+        // Evento view_item do Google Analytics 4
+        gtag('event', 'view_item', {
+            currency: "BRL",
+            value: 0, // O valor pode ser 0 se for uma visualização geral da lista
+            items: [
+                { item_id: "PAC-ESS-120", item_name: "Pacote Essencial" },
+                { item_id: "PAC-PAD-200", item_name: "Pacote Padrão" },
+                { item_id: "PAC-PRO-350", item_name: "Pacote Profissional" }
+            ]
+        });
     </script>
 </body>
 </html>

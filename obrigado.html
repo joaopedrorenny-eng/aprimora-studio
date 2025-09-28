@@ -181,25 +181,40 @@
           // Garante que o valor é um número com duas casas decimais
           const formattedValue = parseFloat(purchaseValue).toFixed(2);
 
-          // Envia o evento de compra para o GA4
-          gtag('event', 'purchase', {
+          const priceValue = parseFloat(formattedValue);
+          let purchasedItem = {
+            item_id: 'UNKNOWN',
+            item_name: 'Pacote Desconhecido',
+            price: priceValue,
+            quantity: 1
+          };
+
+          if (priceValue === 120.00) {
+            purchasedItem = { item_id: 'PAC-ESS-120', item_name: 'Pacote Essencial', price: 120.00, quantity: 1 };
+          } else if (priceValue === 200.00) {
+            purchasedItem = { item_id: 'PAC-PAD-200', item_name: 'Pacote Padrão', price: 200.00, quantity: 1 };
+          } else if (priceValue === 350.00) {
+            purchasedItem = { item_id: 'PAC-PRO-350', item_name: 'Pacote Profissional', price: 350.00, quantity: 1 };
+          }
+
+          const ga4PurchaseData = {
             transaction_id: transactionId,
-            value: parseFloat(formattedValue),
-            currency: 'BRL' 
-          });
+            value: priceValue,
+            currency: 'BRL',
+            items: [purchasedItem]
+          };
+
+          // Envia o evento de compra para o GA4 com detalhes do item
+          gtag('event', 'purchase', ga4PurchaseData);
 
           // Envia o evento de compra para o Pixel da Meta
           fbq('track', 'Purchase', {
-            value: parseFloat(formattedValue),
+            value: priceValue,
             currency: 'BRL',
             order_id: transactionId
           });
 
-          console.log('Evento de compra enviado para o GA4:', {
-            transaction_id: transactionId,
-            value: parseFloat(formattedValue),
-            currency: 'BRL'
-          });
+          console.log('Evento de compra enviado para o GA4:', ga4PurchaseData);
 
         } catch (e) {
           console.error('Erro ao enviar evento de compra para o GA4:', e);
